@@ -53,13 +53,13 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="mapperLocations" value="classpath*:cn/rmhfh/dao/mapper/*.xml"></property> 
+		<property name="mapperLocations" value="classpath*:com/homework/dao/mapper/*.xml"></property> 
 	</bean>
 	
 	<!-- 配置扫描包，加载mapper代理对象 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-		<property name="basePackage" value="cn.rmhfh.dao"></property>
+		<property name="basePackage" value="com.homework.dao"></property>
 	</bean>
 
 
@@ -92,7 +92,7 @@
 
 	<!-- 事务 aop 配置 -->
 	<aop:config>
-		<aop:pointcut id="serviceMethods" expression="execution(public * cn.rmhfh.service.*.*(..))" />
+		<aop:pointcut id="serviceMethods" expression="execution(public * com.homework.service.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
 	</aop:config>
 

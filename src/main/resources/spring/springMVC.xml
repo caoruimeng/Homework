@@ -26,5 +26,17 @@
 	     <property name="maxInMemorySize" value="4096" />
 	     <property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
+	
+	
+	<!-- 拦截器配置 -->
+	 <mvc:interceptors>
+		<mvc:interceptor>			
+			<mvc:mapping path="/admin/**"/>
+			<mvc:exclude-mapping path="/admin/login"/>
+			<mvc:exclude-mapping path="/admin"/>
+			<bean class="com.homework.utils.BackInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 
 </beans>

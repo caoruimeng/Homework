@@ -4,11 +4,18 @@ public class User {
 	private int userId;
 	private String userNo;
 	private String userName;
+	private String password;
 	private String email;
-	private String phone;
-	private int age;
-	private boolean sex;
 	private int role;
+	
+	
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -32,24 +39,6 @@ public class User {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public boolean isSex() {
-		return sex;
-	}
-	public void setSex(boolean sex) {
-		this.sex = sex;
 	}
 	public int getRole() {
 		return role;

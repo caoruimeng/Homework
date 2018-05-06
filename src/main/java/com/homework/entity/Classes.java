@@ -8,6 +8,14 @@ public class Classes {
 	private String classImg;
 	private Date beginDate;
 	private Date endDate;
+	private String teaName;
+	
+	public String getTeaName() {
+		return teaName;
+	}
+	public void setTeaName(String teaName) {
+		this.teaName = teaName;
+	}
 	public int getClassId() {
 		return classId;
 	}
