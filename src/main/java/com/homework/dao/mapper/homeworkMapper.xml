@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.homework.dao.HomeworkDao">
+	<resultMap id="resultMap" type="com.homework.entity.Homework">		
+		<id property="hwId" column="id"></id>
+		<result property="hwTitle" column="title"></result>
+		<result property="testId" column="test_id"></result>
+		<result property="testName" column="test_name"/>
+		<result property="beginDate" column="begin_date"></result>
+		<result property="endDate" column="end_date"></result>
+		<result property="classId" column="class_id"></result>
+		<result property="secId" column="sec_id"></result>
+		<result property="sectionName" column="sec_name"></result>
+	</resultMap>
+	
+	<insert id="addHomework">
+		INSERT INTO
+			homework(title,begin_date,end_date,class_id,test_id,sec_id)
+		VALUES
+			(#{hw.hwTitle},now(),#{hw.endDate},#{hw.classId},#{hw.testId},#{hw.secId})	
+	</insert>
+			
+	<select id="getHomework" resultMap="resultMap">
+		SELECT
+			h.id,h.title,h.test_id,h.begin_date,h.end_date,s.sec_name AS sec_name,t.`name` AS test_name
+		FROM
+			homework h LEFT JOIN section s ON h.sec_id=s.sec_id LEFT JOIN test t ON h.`test_id`=t.`id`
+		WHERE
+			h.class_id=#{cId}	
+	</select>
+	
+	
+	
+</mapper>    
