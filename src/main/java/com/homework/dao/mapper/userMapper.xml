@@ -13,7 +13,7 @@
 		<result property="role" column="role"></result>
 	</resultMap>
 	
-	<!--登录验证  -->
+	
 	<select id="checkUser" resultMap="resultMap">
 		SELECT
 			u.user_id,u.user_no,u.user_name,u.email,u.password,u.role
